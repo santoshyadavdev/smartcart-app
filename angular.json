@@ -33,7 +33,8 @@
             "ssr": {
               "entry": "src/server.ts",
               "platform": "neutral"
-            }
+            },
+            "externalDependencies": ["xhr2"]
           },
           "configurations": {
             "production": {
