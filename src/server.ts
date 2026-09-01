@@ -1,5 +1,11 @@
 import { createRequestHandler, AngularAppEngine } from '@angular/ssr';
 
+
+interface Env {
+  ASSETS: { fetch: (request: Request) => Promise<Response> };
+}
+
+
 function json(data: unknown, status = 200): Response {
   return new Response(JSON.stringify(data), {
     status,
@@ -26,3 +32,12 @@ export const reqHandler = createRequestHandler(async (request: Request) => {
 
   return new Response('Not Found', { status: 404 });
 });
+
+
+
+// Default export for Cloudflare Workers
+export default {
+  async fetch(request: Request, env: Env): Promise<Response| null> {
+    return reqHandler(request) ?? env.ASSETS.fetch(request);
+  },
+};
