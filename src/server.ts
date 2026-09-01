@@ -34,7 +34,6 @@ export const reqHandler = createRequestHandler(async (request: Request) => {
 });
 
 
-
 // Default export for Cloudflare Workers
 export default {
   async fetch(request: Request, env: Env): Promise<Response| null> {

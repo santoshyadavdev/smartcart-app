@@ -6,6 +6,6 @@
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
     "directory": "dist/smartcartapp/browser",
-    "binding": "ASSETS"
-  },
+    "binding": "ASSETS",
+  }
 }
